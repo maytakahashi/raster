@@ -13,6 +13,7 @@ open! Core
    - Getting and setting individual pixels
    - Mapping, folding and iterating over pixels in an image
    - Copying and slicing images
+   - Comparing two images
    - Generating images with a constant pixel color
 *)
 
@@ -69,6 +70,9 @@ val save_ppm : t -> filename:string -> unit
 
 (** [copy image] returns a new image that is a copy of the given [image]. *)
 val copy : t -> t
+
+(** [compare image_1 image_2] returns the number of pixel differences between [image1] and [image2]. *)
+val compare : t -> t -> int
 
 (** [slice image ~x_start ~x_end ~y_start ~y_end] returns a new image that is a sub-region
     of the [image], with [x] coordinates between [x_start] (inclusive) and [x_end]
